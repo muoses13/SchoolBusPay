@@ -15,9 +15,9 @@ This is a student management application built with Next.js and Firebase. It all
     *   A central dashboard to provide an overview of the application.
     *   Cards for "Total Students", "New Students (Last 30 Days)", and "Active Students".
     *   A bar chart to visualize the distribution of students.
-    *   A "Recent Activity" feed to display recent events.
+    *   A "Recent Activity" feed that displays recent events from the Firestore database in real-time.
 *   **Firebase Integration:**
-    *   Uses Firebase for database and authentication.
+    *   Uses Firebase for the database.
 
 ### Style & Design
 
@@ -29,4 +29,4 @@ This is a student management application built with Next.js and Firebase. It all
 
 ### Current Plan
 
-*   The application is now running correctly. The next step is to improve the dashboard page.
+*   The application is now fully functional, with a dynamic "Recent Activity" feed on the dashboard.

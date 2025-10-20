@@ -7,7 +7,8 @@ import { db } from '@/lib/firebase';
 
 interface Activity {
   id: string;
-  message: string;
+  type: string;
+  details: string;
   timestamp: Date;
 }
 
@@ -16,22 +17,14 @@ export default function RecentActivity() {
 
   useEffect(() => {
     const fetchActivities = async () => {
-      if (db) {
-        const q = query(collection(db, 'activities'), orderBy('timestamp', 'desc'), limit(5));
-        const querySnapshot = await getDocs(q);
-        const fetchedActivities = querySnapshot.docs.map(doc => ({
-          ...doc.data(),
-          id: doc.id,
-          timestamp: doc.data().timestamp.toDate(),
-        })) as Activity[];
-        setActivities(fetchedActivities);
-      } else {
-        setActivities([
-          { id: '1', message: 'New student registered: John Doe', timestamp: new Date() },
-          { id: '2', message: 'New student registered: Jane Smith', timestamp: new Date() },
-          { id: '3', message: 'New student registered: Peter Jones', timestamp: new Date() },
-        ]);
-      }
+      const q = query(collection(db, 'activities'), orderBy('timestamp', 'desc'), limit(5));
+      const querySnapshot = await getDocs(q);
+      const fetchedActivities = querySnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id,
+        timestamp: doc.data().timestamp.toDate(),
+      })) as Activity[];
+      setActivities(fetchedActivities);
     };
 
     fetchActivities();
@@ -43,7 +36,8 @@ export default function RecentActivity() {
       <ul>
         {activities.map(activity => (
           <li key={activity.id} className="border-b last:border-b-0 py-2">
-            <p className="text-sm text-gray-600">{activity.message}</p>
+            <p className="text-sm text-gray-800 font-medium">{activity.type}</p>
+            <p className="text-sm text-gray-600">{activity.details}</p>
             <p className="text-xs text-gray-400">{activity.timestamp.toLocaleString()}</p>
           </li>
         ))}

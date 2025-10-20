@@ -3,7 +3,7 @@
 'use client'
 
 import { useFormState } from 'react-dom'
-import { addStudent } from '@/app/actions'
+import { addStudent } from '@/app/students/actions'
 
 const initialState = {
   message: null,
