@@ -11,6 +11,14 @@ export async function addStudent(prevState: any, formData: FormData) {
         grade: formData.get('grade'),
         status: formData.get('status'),
     };
+
+    // If the database is not available, log the data to the console
+    if (!db) {
+        console.log("New student data:", data);
+        revalidatePath('/students')
+        return { message: `Student added successfully (mock mode)` };
+    }
+
     try {
         const docRef = await addDoc(collection(db, "students"), data);
         revalidatePath('/students')

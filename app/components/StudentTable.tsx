@@ -13,17 +13,28 @@ interface Student {
   status: string;
 }
 
+const mockStudents: Student[] = [
+  { id: '1', name: 'John Doe', grade: '5', status: 'Active' },
+  { id: '2', name: 'Jane Smith', grade: '3', status: 'Inactive' },
+  { id: '3', name: 'Peter Jones', grade: '1', status: 'Active' },
+];
+
 export default function StudentTable() {
   const [students, setStudents] = useState<Student[]>([]);
 
   useEffect(() => {
     const fetchStudents = async () => {
-      const querySnapshot = await getDocs(collection(db, "students"));
-      const studentData = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as Student[];
-      setStudents(studentData);
+      // Check if db is available, otherwise use mock data
+      if (db) {
+        const querySnapshot = await getDocs(collection(db, "students"));
+        const studentData = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as Student[];
+        setStudents(studentData);
+      } else {
+        setStudents(mockStudents);
+      }
     };
 
     fetchStudents();
