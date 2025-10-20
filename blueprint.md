@@ -8,8 +8,14 @@ This is a student management application built with Next.js and Firebase. It all
     *   View a list of students from a Firestore database.
     *   Add new students to the database using a form.
     *   Real-time updates using Server Actions and `revalidatePath`.
+*   **Admin Management:**
+    *   View a list of admins.
+    *   Add new admins to the list.
 *   **Dashboard:**
     *   A central dashboard to provide an overview of the application.
+    *   Cards for "Total Students", "New Students (Last 30 Days)", and "Active Students".
+    *   A bar chart to visualize the distribution of students.
+    *   A "Recent Activity" feed to display recent events.
 *   **Firebase Integration:**
     *   Uses Firebase for database and authentication.
 
@@ -23,5 +29,4 @@ This is a student management application built with Next.js and Firebase. It all
 
 ### Current Plan
 
-*   The immediate goal is to fix the 404 error and ensure the application is running correctly.
-*   Once the application is running, the next step is to improve the dashboard page.
+*   The application is now running correctly. The next step is to improve the dashboard page.
