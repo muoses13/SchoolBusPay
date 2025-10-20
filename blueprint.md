@@ -1,9 +1,9 @@
 
-# School Bus Payment Tracking System - Blueprint
+# Merion School Bus Payment Tracking System - Blueprint
 
 ## Overview
 
-This document outlines the development plan for a comprehensive web application designed to streamline school bus payment tracking and management. The system will empower administrators to efficiently manage student records, track payments, automate payment verification through bank statement uploads, and generate insightful reports. The application will be built with a modern, user-friendly interface and a robust backend to ensure a seamless and reliable experience.
+This document outlines the development plan for a comprehensive web application designed to streamline school bus payment tracking and management for Merion School. The system will empower administrators to efficiently manage student records, track payments, automate payment verification through bank statement uploads, and generate insightful reports. The application will be built with a modern, user-friendly interface and a robust backend to ensure a seamless and reliable experience.
 
 ## Design and Features
 
